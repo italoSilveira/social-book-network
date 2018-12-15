@@ -12,3 +12,4 @@
 */
 
 Route::get('/', 'BookController@index');
+Route::post('/', 'BookController@store');
