@@ -4,7 +4,8 @@
     <title>Some title, i dont know yet</title>
 </head>
 <body>
-    <form class="form-group">
+    <form class="form-group" action="/">
+        {{ csrf_field() }}
         <label>
             Title:
             <input type="text" name="title">
@@ -27,7 +28,7 @@
          <br>
         <label>
             Sinopsis:
-            <input type="textarea" name="sinopsis">
+            <textarea name="sinopsis"></textarea>
         </label>
          <br>
         <label>
