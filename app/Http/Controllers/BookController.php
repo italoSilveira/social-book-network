@@ -19,8 +19,7 @@ class BookController extends Controller
 
     public function store(Request $request) {
         $book = new \App\BookModel;
-
-        $book->
+        
         return view('home', [
             'categorys' => $categorys,
             'publishers' => $publishers,
