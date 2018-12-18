@@ -3,7 +3,8 @@
 <head>  
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="{!! asset('css/app.css') !!}" rel="stylesheet">
+    <link href= "{{ asset('css/app.css') }}" rel="stylesheet">   
+    <script type="text/javascript" src="<?php echo asset('js/app.js')?>"></script>
     <title>Some title, i dont know yet</title>
 
 </head>
