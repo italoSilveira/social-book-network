@@ -1,0 +1,70 @@
+{
+  "_args": [
+    [
+      "startbootstrap-modern-business@4.1.1",
+      "C:\\Users\\Ítalo Henrique\\Desktop\\New Projects\\laravel-social-book-network"
+    ]
+  ],
+  "_from": "startbootstrap-modern-business@4.1.1",
+  "_id": "startbootstrap-modern-business@4.1.1",
+  "_inBundle": false,
+  "_integrity": "sha512-hnur6d91y4HWaqIkQutuasEEHSK9IRBnJGJ5kc7nDa+AHjrtfph9pJyo6zkRY6ODAqRDlYlQ9pTRW3+CElH1lQ==",
+  "_location": "/startbootstrap-modern-business",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "startbootstrap-modern-business@4.1.1",
+    "name": "startbootstrap-modern-business",
+    "escapedName": "startbootstrap-modern-business",
+    "rawSpec": "4.1.1",
+    "saveSpec": null,
+    "fetchSpec": "4.1.1"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/startbootstrap-modern-business/-/startbootstrap-modern-business-4.1.1.tgz",
+  "_spec": "4.1.1",
+  "_where": "C:\\Users\\Ítalo Henrique\\Desktop\\New Projects\\laravel-social-book-network",
+  "author": {
+    "name": "Start Bootstrap"
+  },
+  "bugs": {
+    "url": "https://github.com/BlackrockDigital/startbootstrap-modern-business/issues",
+    "email": "feedback@startbootstrap.com"
+  },
+  "contributors": [
+    {
+      "name": "David Miller",
+      "url": "http://davidmiller.io/"
+    }
+  ],
+  "dependencies": {
+    "bootstrap": "4.1.1",
+    "font-awesome": "^4.7.0",
+    "jquery": "3.3.1"
+  },
+  "description": "A multipurpose HTML website template built with Bootstrap",
+  "devDependencies": {
+    "browser-sync": "2.24.5",
+    "gulp": "^3.9.1"
+  },
+  "homepage": "https://startbootstrap.com/template-overviews/modern-business",
+  "keywords": [
+    "css",
+    "sass",
+    "html",
+    "responsive",
+    "theme",
+    "template"
+  ],
+  "license": "MIT",
+  "name": "startbootstrap-modern-business",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BlackrockDigital/startbootstrap-modern-business.git"
+  },
+  "title": "Modern Business",
+  "version": "4.1.1"
+}
