@@ -1,59 +1,55 @@
 @extends('base')
 @section('body')
-  <div class="container">
-    <!-- Page Heading/Breadcrumbs -->
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item">
-        <a href="index.html">Home</a>
-      </li>
-      <li class="breadcrumb-item"><a href="index.html">Books</a></li>
-      <li class="breadcrumb-item atice">The name of the wind</li>
-    </ol>
-
-    <div class="row">
-      <div class="col-md-4">
-        <div class="row">
-          <img class="img-fluid" src="https://images-na.ssl-images-amazon.com/images/I/51JThzjy3gL._SX306_BO1,204,203,200_.jpg" alt="The name of the wind">
-        </div>
-        <div class="row">
-        <div class="card my-12">
-          <h5 class="card-header">Attributes</h5>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-lg-6">
-                <ul class="list-unstyled mb-0">
-                  <li>
-                    <a href="#">Author</a>
-                  </li>
-                  <li>
-                    <a href="#">Publisher</a>
-                  </li>
-                  <li>
-                    <a href="#">Categories</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <ul class="list-unstyled mb-0">
-                  <li>
-                    <a href="#">Patrick Rothfuss</a>
-                  </li>
-                  <li>
-                    <a href="#">Someone</a>
-                  </li>
-                  <li>
-                    <a href="#">Fiction</a>
-                  </li>
-                </ul>
-              </div>
+<div class="container">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a href="index.html">Home</a>
+    </li>
+    <li class="breadcrumb-item"><a href="index.html">Books</a></li>
+    <li class="breadcrumb-item atice">The name of the wind</li>
+  </ol>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="row">
+        <img class="img-fluid" src="https://images-na.ssl-images-amazon.com/images/I/51JThzjy3gL._SX306_BO1,204,203,200_.jpg" alt="The name of the wind">
+      </div>
+      <div class="row">
+        <div class="col-md-10">
+          <div class="card my-4">
+            <h5 class="card-header">About</h5>
+            <div class="card-body">
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <th scope="row">Author</th>
+                    <td>Patrick Rothfuss</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Categoy</th>
+                    <td>Fictcion</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Pages</th>
+                    <td>500</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Publisher</th>
+                    <td>Daw Books</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">ISBN</th>
+                    <td>978-0756404741</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
-        </div>
       </div>
-      <div class="col-md-8">
-        <h3 class="my-3">The name of the wind</h3>
-        <p style="text-align: justify">The Name of the Wind (The Kingkiller Chronicle: Day One) is a fantasy novel in the grand tradition. Author Patrick Rothfuss places an emphasis on world building seldom seen even in fantasy epics.
+    </div>
+    <div class="col-md-8">
+      <h3 class="my-3">The name of the wind</h3>
+      <p style="text-align: justify">The Name of the Wind (The Kingkiller Chronicle: Day One) is a fantasy novel in the grand tradition. Author Patrick Rothfuss places an emphasis on world building seldom seen even in fantasy epics.
 
         Set in an indeterminate time, Chronicler, a traveling scribe, is traversing the country collecting stories. After being attacked by arachnid monsters called Scrael, Chronicler is saved by an innkeeper named Kote. The innkeeper soon reveals that he is actually Kvothe, a person of legendary import. He is an elite swordsman, but is also highly skilled in magic and musicianship. There have been claims that once Kvothe killed a king, and that act is what produced the war in which the land now finds itself embroiled. After Kvothe reveals himself, Chronicler asks for the honor of recording his story for posterity. Kvothe agrees, with one minor caveat: his is a long tale, and will take three days to relate. <br><br>
 
@@ -106,4 +102,16 @@
 
     </div>
   </div>
-@endsection
+  <style type="text/css">
+    .table th, .table td{
+      border-top: 0px !important;
+    }
+    .card-header{
+      text-align: center;
+    }
+
+    h3{
+      margin-top: -1%;
+    }
+  </style>
+  @endsection
