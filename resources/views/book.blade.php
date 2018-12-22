@@ -15,7 +15,7 @@
           <div class="row">
            <div class="d-flex justify-content-start">
             <div class="image-container">
-              <img src="http://placehold.it/150x150" id="imgProfile" style="width: 400px; height: 650px" class="img-thumbnail" />
+              <img src="book/{{$book->image}}" id="imgProfile" style="width: 400px; height: 650px" class="img-thumbnail" />
               <div class="middle">
                 <input type="button" class="btn btn-secondary" id="btnChangePicture" value="Change" />
                 <input type="file" style="display: none;" id="profilePicture" name="file" />
@@ -59,6 +59,10 @@
                       </select></td>
                     </tr>
                     <tr>
+                      <th scope="row">Edition</th>
+                      <td><input type="text" class="form-control" name="edition"></td>
+                    </tr>
+                    <tr>
                       <th scope="row">ISBN</th>
                       <td><input type="text" class="form-control" name="isbn"></td>
                     </tr>
@@ -72,7 +76,7 @@
       <div class="col-md-8">
         <div class="row">
           <div  class="col-md-11">
-            <input type="text" class="form-control" name="name" placeholder="Book's name">
+            <input type="text" class="form-control" name="name" placeholder="Book's name" value="">
           </div>
           <div class="col-md-1">
             <button class="btn btn-primary" type="submit">
@@ -80,7 +84,7 @@
             </button>
           </div>
         </div><br>
-        <textarea class="form-control" rows="43" placeholder="Synopsis"></textarea>
+        <textarea class="form-control" rows="43" placeholder="Synopsis" name="synopsis"></textarea>
       </div>
     </form>
   </div>

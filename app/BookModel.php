@@ -6,8 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class BookModel extends Model
 {
-	protected $table = "id";
-    protected $guarded = ['id', 'created_at'];
+	protected $table = "book";
+    protected $guarded = ['id', 'created_at', 'updated_at'];
+    public $timestamps = false; 
 
     public function author()
     {
