@@ -13,3 +13,4 @@
 
 Route::get('/book/create', 'BookController@create');
 Route::post('/book/create', 'BookController@store');
+Route::post('/book/edit/{id}', 'BookController@store');

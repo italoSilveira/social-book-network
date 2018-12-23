@@ -27,6 +27,8 @@ class BookController extends Controller
         $categorys = CategoryModel::all();
         $publishers = PublisherModel::all();
 
+        $book->image = 'default.jpg';
+
         return view('book', [
             'book' => $book,
             'categorys' => $categorys,
@@ -48,19 +50,18 @@ class BookController extends Controller
             $book->status = 1;
             $book->sinopsis = $request->synopsis;
             $book->edition = $request->edition;
+            $book->save();
+
+            $authors = AuthorModel::all();
+            $categorys = CategoryModel::all();
+            $publishers = PublisherModel::all();
+
+            return view('book', [
+                'book' => $book,
+                'categorys' => $categorys,
+                'publishers' => $publishers,
+                'authors' => $authors
+                ]);
         }
-
-        $book->save();
-
-        $authors = AuthorModel::all();
-        $categorys = CategoryModel::all();
-        $publishers = PublisherModel::all();
-
-        return view('book', [
-            'book' => $book,
-            'categorys' => $categorys,
-            'publishers' => $publishers,
-            'authors' => $authors
-            ]);
     }
 }

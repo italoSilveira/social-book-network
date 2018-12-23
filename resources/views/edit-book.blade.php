@@ -15,7 +15,7 @@
           <div class="row">
            <div class="d-flex justify-content-start">
             <div class="image-container">
-              <img id="imgProfile" src="{{ url("storage/book/default.jpg") }}" style="width: 400px; height: 650px" class="img-thumbnail" />
+              <img id="imgProfile" src="{{ url("storage/book/{$book->image}") }}" style="width: 400px; height: 650px" class="img-thumbnail" />
               <div class="middle">
                 <input type="button" class="btn btn-secondary" id="btnChangePicture" value="Change" />
                 <input type="file" style="display: none;" id="profilePicture" name="file" />
@@ -34,7 +34,11 @@
                       <th scope="row">Author</th>
                       <td><select class="form-control" name="author">
                         @foreach ($authors as $author)
+                        @if($author->id == $book->author_id)
+                        <option selected value="{{$author->id}}">{{$author->name}}</option>
+                        @else
                         <option value="{{$author->id}}">{{$author->name}}</option>
+                        @endif  
                         @endforeach
                       </select></td>
                     </tr>
@@ -42,29 +46,37 @@
                       <th scope="row">Category</th>
                       <td><select class="form-control" name="category">
                         @foreach ($categorys as $category)
+                        @if($category->id == $book->category_id)
+                        <option selected value="{{$category->id}}">{{$category->name}}</option>
+                        @else
                         <option value="{{$category->id}}">{{$category->name}}</option>
+                        @endif
                         @endforeach
                       </select></td>
                     </tr>
                     <tr>
                       <th scope="row">Pages</th>
-                      <td><input type="number" class="form-control" name="pages"></td>
+                      <td><input type="number" class="form-control" name="pages" value="{{$book->pages}}"></td>
                     </tr>
                     <tr>
                       <th scope="row">Publisher</th>
                       <td><select class="form-control" name="publisher">
                         @foreach ($publishers as $publisher)
+                        @if($publisher->id == $book->pub_comp_id)
+                        <option selected value="{{$publisher->id}}">{{$publisher->name}}</option>
+                        @else
                         <option value="{{$publisher->id}}">{{$publisher->name}}</option>
+                        @endif
                         @endforeach
                       </select></td>
                     </tr>
                     <tr>
                       <th scope="row">Edition</th>
-                      <td><input type="text" class="form-control" name="edition"></td>
+                      <td><input type="text" class="form-control" name="edition" value="{{$book->edition}}"></td>
                     </tr>
                     <tr>
                       <th scope="row">ISBN</th>
-                      <td><input type="text" class="form-control" name="isbn"></td>
+                      <td><input type="text" class="form-control" name="isbn" value="{{$book->isbn}}"></td>
                     </tr>
                   </tbody>
                 </table>
@@ -76,7 +88,7 @@
       <div class="col-md-8">
         <div class="row">
           <div  class="col-md-11">
-            <input type="text" class="form-control" name="name" placeholder="Book's name" >
+            <input type="text" class="form-control" name="name" placeholder="Book's name" value="{{$book->name}}">
           </div>
           <div class="col-md-1">
             <button class="btn btn-primary" type="submit">
@@ -84,7 +96,7 @@
             </button>
           </div>
         </div><br>
-        <textarea class="form-control" rows="47" placeholder="Synopsis" name="synopsis" ></textarea>
+        <textarea class="form-control" rows="47" placeholder="Synopsis" name="synopsis" >{{$book->sinopsis}}</textarea>
       </div>
     </form>
   </div>
