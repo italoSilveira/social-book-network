@@ -52,8 +52,8 @@ class BookController extends Controller
     }
 
 
-    public function store($id) {
-        $book = new BookModel();
+    public function store(Request $request, $id) {
+        $book = BookModel::find($id);
         $image = $book->uploadPicture($request);
         if(!!$image){
             $book->image = $image;
