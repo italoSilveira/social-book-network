@@ -37,31 +37,48 @@ class BookController extends Controller
             ]);
     }
 
-    public function store(Request $request) {
+    public function getStore($id) {
+        $book = BookModel::find($id);
+        $authors = AuthorModel::all();
+        $categorys = CategoryModel::all();
+        $publishers = PublisherModel::all();
+
+        return view('edit-book', [
+            'book' => $book,
+            'categorys' => $categorys,
+            'publishers' => $publishers,
+            'authors' => $authors
+            ]);
+    }
+
+
+    public function store($id) {
         $book = new BookModel();
-        $book->image = $book->uploadPicture($request);
-        if(!!$book->image){
-            $book->name = $request->name;
-            $book->author_id = $request->author;
-            $book->category_id = $request->category;
-            $book->pub_comp_id = $request->publisher;
-            $book->isbn = $request->isbn;
-            $book->pages = $request->pages;
-            $book->status = 1;
-            $book->sinopsis = $request->synopsis;
-            $book->edition = $request->edition;
-            $book->save();
-
-            $authors = AuthorModel::all();
-            $categorys = CategoryModel::all();
-            $publishers = PublisherModel::all();
-
-            return view('book', [
-                'book' => $book,
-                'categorys' => $categorys,
-                'publishers' => $publishers,
-                'authors' => $authors
-                ]);
+        $image = $book->uploadPicture($request);
+        if(!!$image){
+            $book->image = $image;
         }
+
+        $book->name = $request->name;
+        $book->author_id = $request->author;
+        $book->category_id = $request->category;
+        $book->pub_comp_id = $request->publisher;
+        $book->isbn = $request->isbn;
+        $book->pages = $request->pages;
+        $book->status = 1;
+        $book->sinopsis = $request->synopsis;
+        $book->edition = $request->edition;
+        $book->save();
+
+        $authors = AuthorModel::all();
+        $categorys = CategoryModel::all();
+        $publishers = PublisherModel::all();
+
+        return view('book', [
+            'book' => $book,
+            'categorys' => $categorys,
+            'publishers' => $publishers,
+            'authors' => $authors
+            ]);
     }
 }
