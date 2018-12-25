@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use App\BookModel;
 use App\CategoryModel;
 use App\AuthorModel;
@@ -37,7 +38,10 @@ class BookController extends Controller
             ]);
     }
 
-    public function getStore($id) {
+    public function show() {
+    }
+
+    public function edit($id) {
         $book = BookModel::find($id);
         $authors = AuthorModel::all();
         $categorys = CategoryModel::all();
@@ -52,11 +56,17 @@ class BookController extends Controller
     }
 
 
-    public function store(Request $request, $id) {
-        $book = BookModel::find($id);
+    public function store(Request $request) {
+        $validatedData = $request->validate([
+            'file' => 'required',
+            ]);
+
+        $book = new BookModel();
         $image = $book->uploadPicture($request);
         if(!!$image){
             $book->image = $image;
+        }else{
+            //message error here
         }
 
         $book->name = $request->name;
@@ -75,7 +85,6 @@ class BookController extends Controller
         $publishers = PublisherModel::all();
 
         return view('book', [
-            'book' => $book,
             'categorys' => $categorys,
             'publishers' => $publishers,
             'authors' => $authors
