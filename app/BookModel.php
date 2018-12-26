@@ -12,17 +12,17 @@ class BookModel extends Model
 
     public function author()
     {
-        return $this->hasMany('App\Author');
+        return $this->belongsTo('App\AuthorModel');
     }
 
     public function category()
     {
-        return $this->hasMany('App\Category');
+        return $this->belongsTo('App\CategoryModel');
     }
 
     public function publisher()
     {
-        return $this->hasOne('App\Publisher');
+        return $this->belongsTo('App\PublisherModel');
     }
 
     public function uploadPicture($request){

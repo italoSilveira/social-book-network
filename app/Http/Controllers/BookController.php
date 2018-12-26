@@ -38,7 +38,12 @@ class BookController extends Controller
             ]);
     }
 
-    public function show() {
+    public function show($id) {
+        $book = BookModel::find($id);
+
+        return view('show-book', [
+            'book' => $book
+            ]);
     }
 
     public function edit($id) {
@@ -108,7 +113,7 @@ class BookController extends Controller
         $book->name = $request->name;
         $book->author_id = $request->author;
         $book->category_id = $request->category;
-        $book->pub_comp_id = $request->publisher;
+        $book->publisher_id = $request->publisher;
         $book->isbn = $request->isbn;
         $book->pages = $request->pages;
         $book->status = 1;
@@ -120,10 +125,6 @@ class BookController extends Controller
         $categorys = CategoryModel::all();
         $publishers = PublisherModel::all();
 
-        return view('book', [
-            'categorys' => $categorys,
-            'publishers' => $publishers,
-            'authors' => $authors
-            ]);
+        return redirect('book/'.$id);
     }
 }
