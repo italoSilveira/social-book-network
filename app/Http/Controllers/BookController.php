@@ -43,6 +43,11 @@ class BookController extends Controller
 
     public function edit($id) {
         $book = BookModel::find($id);
+        
+        if(!$book){
+            return redirect('/home');
+        }
+
         $authors = AuthorModel::all();
         $categorys = CategoryModel::all();
         $publishers = PublisherModel::all();
@@ -67,6 +72,37 @@ class BookController extends Controller
             $book->image = $image;
         }else{
             //message error here
+        }
+
+        $book->name = $request->name;
+        $book->author_id = $request->author;
+        $book->category_id = $request->category;
+        $book->pub_comp_id = $request->publisher;
+        $book->isbn = $request->isbn;
+        $book->pages = $request->pages;
+        $book->status = 1;
+        $book->sinopsis = $request->synopsis;
+        $book->edition = $request->edition;
+        $book->save();
+
+        $authors = AuthorModel::all();
+        $categorys = CategoryModel::all();
+        $publishers = PublisherModel::all();
+
+        return view('book', [
+            'categorys' => $categorys,
+            'publishers' => $publishers,
+            'authors' => $authors
+            ]);
+    }
+
+    public function update(Request $request, $id) {
+        $book = BookModel::find($id);
+        $image = $book->uploadPicture($request);
+        if(!!$image){
+            $book->image = $image;
+        }else{
+            //
         }
 
         $book->name = $request->name;
