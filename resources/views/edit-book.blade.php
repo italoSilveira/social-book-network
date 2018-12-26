@@ -8,7 +8,8 @@
       <li class="breadcrumb-item"><a href="index.html">Books</a></li>
       <li class="breadcrumb-item atice">Let's go store a new book!</li>
     </ol>
-    <form method="post" action="/book/edit/{{$book->id}}" enctype="multipart/form-data">
+    <form method="post" action="/book/{{$book->id}}/edit" enctype="multipart/form-data">
+      @method('PATCH')
       @csrf
       <div class="row">
         <div class="col-md-4">
