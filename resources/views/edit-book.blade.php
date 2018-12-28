@@ -35,23 +35,15 @@
                       <th scope="row">Author</th>
                       <td><select class="form-control" name="author">
                         @foreach ($authors as $author)
-                        @if($author->id == $book->author_id)
-                        <option selected value="{{$author->id}}">{{$author->name}}</option>
-                        @else
-                        <option value="{{$author->id}}">{{$author->name}}</option>
-                        @endif  
+                        <option value="{{$author->id}}" {{ ($author->id == $book->author_id) ? 'selected' : ''}}>{{$author->name}}</option>
                         @endforeach
                       </select></td>
                     </tr>
                     <tr>
                       <th scope="row">Category</th>
                       <td><select class="form-control" name="category">
-                        @foreach ($categorys as $category)
-                        @if($category->id == $book->category_id)
-                        <option selected value="{{$category->id}}">{{$category->name}}</option>
-                        @else
-                        <option value="{{$category->id}}">{{$category->name}}</option>
-                        @endif
+                      @foreach ($categorys as $category)
+                        <option value="{{$category->id}}" {{ ($category->id == $book->category_id) ? 'selected' : '' }}>{{$category->name}}</option>
                         @endforeach
                       </select></td>
                     </tr>
@@ -63,11 +55,7 @@
                       <th scope="row">Publisher</th>
                       <td><select class="form-control" name="publisher">
                         @foreach ($publishers as $publisher)
-                        @if($publisher->id == $book->pub_comp_id)
-                        <option selected value="{{$publisher->id}}">{{$publisher->name}}</option>
-                        @else
-                        <option value="{{$publisher->id}}">{{$publisher->name}}</option>
-                        @endif
+                        <option value="{{$publisher->id}}" {{ ($publisher->id == $book->pub_comp_id) ? 'selected' : '' }}>{{$publisher->name}}</option>
                         @endforeach
                       </select></td>
                     </tr>
