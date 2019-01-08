@@ -30,7 +30,7 @@ class BookController extends Controller
 
         $book->image = 'default.jpg';
 
-        return view('book', [
+        return view('book.create', [
             'book' => $book,
             'categorys' => $categorys,
             'publishers' => $publishers,
@@ -41,7 +41,7 @@ class BookController extends Controller
     public function show($id) {
         $book = BookModel::find($id);
 
-        return view('show-book', [
+        return view('book.show', [
             'book' => $book
             ]);
     }
@@ -57,7 +57,7 @@ class BookController extends Controller
         $categorys = CategoryModel::all();
         $publishers = PublisherModel::all();
 
-        return view('edit-book', [
+        return view('book.edit', [
             'book' => $book,
             'categorys' => $categorys,
             'publishers' => $publishers,
@@ -82,7 +82,7 @@ class BookController extends Controller
         $book->name = $request->name;
         $book->author_id = $request->author;
         $book->category_id = $request->category;
-        $book->pub_comp_id = $request->publisher;
+        $book->publisher_id = $request->publisher;
         $book->isbn = $request->isbn;
         $book->pages = $request->pages;
         $book->status = 1;
@@ -94,11 +94,7 @@ class BookController extends Controller
         $categorys = CategoryModel::all();
         $publishers = PublisherModel::all();
 
-        return view('book', [
-            'categorys' => $categorys,
-            'publishers' => $publishers,
-            'authors' => $authors
-            ]);
+        return redirect('book/'.$book->id);
     }
 
     public function update(Request $request, $id) {
